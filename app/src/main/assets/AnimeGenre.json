@@ -1,0 +1,219 @@
+{
+  "AnimeGenreList": [
+    {
+      "id": 1,
+      "name": "Action",
+      "nsfw": false
+    },
+    {
+      "id": 2,
+      "name": "Adventure",
+      "nsfw": false
+    },
+    {
+      "id": 3,
+      "name": "Cars",
+      "nsfw": false
+    },
+    {
+      "id": 4,
+      "name": "Comedy",
+      "nsfw": false
+    },
+    {
+      "id": 5,
+      "name": "Dementia",
+      "nsfw": false
+    },
+    {
+      "id": 6,
+      "name": "Deamons",
+      "nsfw": false
+    },
+    {
+      "id": 7,
+      "name": "Mystery",
+      "nsfw": false
+    },
+    {
+      "id": 8,
+      "name": "Drama",
+      "nsfw": false
+    },
+    {
+      "id": 9,
+      "name": "Ecchi",
+      "nsfw": true
+    },
+    {
+      "id": 10,
+      "name": "Fantasy",
+      "nsfw": false
+    },
+    {
+      "id": 11,
+      "name": "Game",
+      "nsfw": false
+    },
+    {
+      "id": 12,
+      "name": "Hentai",
+      "nsfw": true
+    },
+    {
+      "id": 13,
+      "name": "Historical",
+      "nsfw": false
+    },
+    {
+      "id": 14,
+      "name": "Horror",
+      "nsfw": false
+    },
+    {
+      "id": 15,
+      "name": "Kids",
+      "nsfw": false
+    },
+    {
+      "id": 16,
+      "name": "Magic",
+      "nsfw": false
+    },
+    {
+      "id": 17,
+      "name": "Martial Arts",
+      "nsfw": false
+    },
+    {
+      "id": 18,
+      "name": "Mecha",
+      "nsfw": false
+    },
+    {
+      "id": 19,
+      "name": "Music",
+      "nsfw": false
+    },
+    {
+      "id": 20,
+      "name": "Parody",
+      "nsfw": false
+    },
+    {
+      "id": 21,
+      "name": "Samurai",
+      "nsfw": false
+    },
+    {
+      "id": 22,
+      "name": "Romance",
+      "nsfw": false
+    },
+    {
+      "id": 23,
+      "name": "School",
+      "nsfw": false
+    },
+    {
+      "id": 24,
+      "name": "Sci fi",
+      "nsfw": false
+    },
+    {
+      "id": 25,
+      "name": "Shoujo",
+      "nsfw": false
+    },
+    {
+      "id": 26,
+      "name": "Shoujo Ai",
+      "nsfw": false
+    },
+    {
+      "id": 27,
+      "name": "Shounen",
+      "nsfw": false
+    },
+    {
+      "id": 28,
+      "name": "Shounen Ai",
+      "nsfw": false
+    },
+    {
+      "id": 29,
+      "name": "Space",
+      "nsfw": false
+    },
+    {
+      "id": 30,
+      "name": "Sports",
+      "nsfw": false
+    },
+    {
+      "id": 31,
+      "name": "Super Power",
+      "nsfw": false
+    },
+    {
+      "id": 32,
+      "name": "Vampire",
+      "nsfw": false
+    },
+    {
+      "id": 33,
+      "name": "Yaoi",
+      "nsfw": true
+    },
+    {
+      "id": 34,
+      "name": "Yuri",
+      "nsfw": true
+    },
+    {
+      "id": 35,
+      "name": "Harem",
+      "nsfw": true
+    },
+    {
+      "id": 36,
+      "name": "Slice of life",
+      "nsfw": false
+    },
+    {
+      "id": 37,
+      "name": "Supernatural",
+      "nsfw": false
+    },
+    {
+      "id": 38,
+      "name": "Military",
+      "nsfw": false
+    },
+    {
+      "id": 39,
+      "name": "Police",
+      "nsfw": false
+    },
+    {
+      "id": 40,
+      "name": "Psychological",
+      "nsfw": false
+    },
+    {
+      "id": 41,
+      "name": "Thriller",
+      "nsfw": false
+    },
+    {
+      "id": 42,
+      "name": "Seinen",
+      "nsfw": false
+    },
+    {
+      "id": 43,
+      "name": "Josei",
+      "nsfw": false
+    }
+  ]
+}
