@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AnimeList</string>
+    <string name="list">My List</string>
+    <string name="genre">Genre</string>
+    <string name="myList">Ma liste</string>
+    <string name="search">Rechercher</string>
 </resources>
