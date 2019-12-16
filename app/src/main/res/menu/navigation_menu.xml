@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:title="@string/myList"
-        android:id="@+id/home"
+        android:id="@+id/myList"
         app:showAsAction="ifRoom" />
     <item
         android:title="@string/genre"
-        android:id="@+id/sessions"
+        android:id="@+id/genre"
         app:showAsAction="ifRoom" />
     <item
         android:title="@string/search"

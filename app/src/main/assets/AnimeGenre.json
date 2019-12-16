@@ -3,217 +3,258 @@
     {
       "id": 1,
       "name": "Action",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://thenashbrothers.com/wp-content/uploads/2018/06/attack-on-titan-wallpaper-eren-and-levi-anime-attack-titan-eren-yeager-levi-ackerman-wallpaper.jpg"
     },
     {
       "id": 2,
       "name": "Adventure",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://www.kana.fr/assets/uploads/2015/02/BanHxH.jpg"
     },
     {
       "id": 3,
       "name": "Cars",
-      "nsfw": false
+      "nsfw": false,
+      "image": "http://otakiew.fr/wp-content/uploads/2015/08/Capture-d%C3%A9cran-2015-02-10-23.03.42.png"
     },
     {
       "id": 4,
       "name": "Comedy",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://pm1.narvii.com/6243/b8c743d190b7b546630acb69efa09df4bbbe2711_hq.jpg"
     },
     {
       "id": 5,
       "name": "Dementia",
-      "nsfw": false
+      "nsfw": false,
+      "image": "http://pm1.narvii.com/7094/b32e429a7b08fdafebf5ed0d75a2200797a913b0r1-1280-800v2_uhq.jpg"
     },
     {
       "id": 6,
       "name": "Deamons",
-      "nsfw": false
+      "nsfw": false,
+      "image": "http://ekladata.com/hr47jFnqN9-PaDnvNRXugBr8IgA.jpg"
     },
     {
       "id": 7,
       "name": "Mystery",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://media.senscritique.com/media/000006505822/1200/Another.jpg"
     },
     {
       "id": 8,
       "name": "Drama",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://res.cloudinary.com/jerrick/image/upload/fl_progressive,q_auto,w_1024/wkjixtzjeq4btfd3vjed.jpg"
     },
     {
       "id": 9,
       "name": "Ecchi",
-      "nsfw": true
+      "nsfw": true,
+      "image": "https://i.ytimg.com/vi/1QX0LRhp6b4/maxresdefault.jpg"
     },
     {
       "id": 10,
       "name": "Fantasy",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://i.ytimg.com/vi/OiL8T52M98c/maxresdefault.jpg"
     },
     {
       "id": 11,
       "name": "Game",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://occ-0-1722-1723.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABf3C56kHFWcGJGBcXyofHKZvoTfHes_3OekZNQr5T0N3_Y4szgEqUeiCiDQ-CTLNbtAez32GIqF2ezAL1RHLC3b7hi1A.jpg?r=1ff"
     },
     {
       "id": 12,
       "name": "Hentai",
-      "nsfw": true
+      "nsfw": true,
+      "image": "https://i.ytimg.com/vi/1QX0LRhp6b4/maxresdefault.jpg"
     },
     {
       "id": 13,
       "name": "Historical",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://i0.wp.com/recommendmeanime.com/wp-content/uploads/2016/09/top-20-historical-anime.jpg?fit=1280%2C720&ssl=1"
     },
     {
       "id": 14,
       "name": "Horror",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://i.ytimg.com/vi/7yPdT33lnRA/maxresdefault.jpg"
     },
     {
       "id": 15,
       "name": "Kids",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://s2.dmcdn.net/v/I_XmP1OYQCEcN6pLz/x1080"
     },
     {
       "id": 16,
       "name": "Magic",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://i.ytimg.com/vi/gQoaUSrmrto/maxresdefault.jpg"
     },
     {
       "id": 17,
       "name": "Martial Arts",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://i.ytimg.com/vi/eWQMBY7jptc/maxresdefault.jpg"
     },
     {
       "id": 18,
       "name": "Mecha",
-      "nsfw": false
-    },
-    {
+      "nsfw": false,
+      "image": "http://img.over-blog-kiwi.com/1/50/78/51/20180303/ob_71e0be_ob-6dec28-vlcsnap-2017-03-05-04h29m01s.jpg"
+    },  {
       "id": 19,
       "name": "Music",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://www.tvqc.com/wp-content/uploads/2018/12/Le-Piano-dans-la-for%C3%AAt-2.jpg"
     },
     {
       "id": 20,
       "name": "Parody",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://bleachmx.fr/wp-content/uploads/Gintama-Anime-Saison-4-e1428406091561-1280x720.jpg"
     },
     {
       "id": 21,
       "name": "Samurai",
-      "nsfw": false
+      "nsfw": false,
+      "image":"https://www.nautiljon.com/images/more/00/06/56260.jpg"
     },
     {
       "id": 22,
       "name": "Romance",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://i.ytimg.com/vi/WFF4AuVvIUg/maxresdefault.jpg"
     },
     {
       "id": 23,
       "name": "School",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://static3.cbrimages.com/wordpress/wp-content/uploads/2019/09/nichijou.png"
     },
     {
       "id": 24,
       "name": "Sci fi",
-      "nsfw": false
+      "nsfw": false,
+      "image":"https://i.ytimg.com/vi/VEEfxUsY5f0/maxresdefault.jpg"
     },
     {
       "id": 25,
       "name": "Shoujo",
-      "nsfw": false
+      "nsfw": false,
+      "image": "http://nopybot.com/wp-content/uploads/2011/02/bungaku_shoujo-02.jpg"
     },
     {
       "id": 26,
       "name": "Shoujo Ai",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://otakutherapy.com/wp-content/uploads/2016/12/otku_c64186a92bfe60a6.jpg"
     },
     {
       "id": 27,
       "name": "Shounen",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://img.lemde.fr/2014/07/10/0/220/1160/580/1440/0/60/0/ill_4454714_7782_dbz-en-te_te.jpg"
     },
     {
       "id": 28,
       "name": "Shounen Ai",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://static.zerochan.net/Natsume.Yuujinchou.full.992964.jpg"
     },
     {
       "id": 29,
       "name": "Space",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://media.senscritique.com/media/000013229160/1200/Terra_Formars.jpg"
     },
     {
       "id": 30,
       "name": "Sports",
-      "nsfw": false
-    },
-    {
+      "nsfw": false,
+      "image": "https://dailygeekshow.com/wp-content/uploads/sites/2/2016/03/cm-haikyuu-entrainement.jpg?width=1200&enable=upscale"
+    },  {
       "id": 31,
       "name": "Super Power",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://lightningamer.com/wp-content/uploads/2019/06/One-Punch-Man.jpg"
     },
     {
       "id": 32,
       "name": "Vampire",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://media.senscritique.com/media/000006516190/1200/Blood_Lad.jpg"
     },
     {
       "id": 33,
       "name": "Yaoi",
-      "nsfw": true
+      "nsfw": true,
+      "image": "https://i.ytimg.com/vi/1QX0LRhp6b4/maxresdefault.jpg"
     },
     {
       "id": 34,
       "name": "Yuri",
-      "nsfw": true
+      "nsfw": true,
+      "image":"https://i.ytimg.com/vi/1QX0LRhp6b4/maxresdefault.jpg"
     },
     {
       "id": 35,
       "name": "Harem",
-      "nsfw": true
+      "nsfw": true,
+      "image":"https://i.ytimg.com/vi/1QX0LRhp6b4/maxresdefault.jpg"
     },
     {
       "id": 36,
       "name": "Slice of life",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://1.bp.blogspot.com/-Mlum_Odf67k/XPVpDqjQzpI/AAAAAAAAKNQ/JrzHpaPzld4y2gshsljXovFADZxifZ_GACLcBGAs/s1600/slice%2Bof%2Blife%2Bcomedy%2Banime.jpg"
     },
     {
       "id": 37,
       "name": "Supernatural",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://i.pinimg.com/originals/3a/e8/19/3ae81991dc80015c5edea6bc97d75cf3.jpg"
     },
     {
       "id": 38,
       "name": "Military",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://worldwithouthorizons.com/wp-content/uploads/alde5.jpg"
     },
     {
       "id": 39,
       "name": "Police",
-      "nsfw": false
+      "nsfw": false,
+      "image":"https://sm.ign.com/t/ign_fr/screenshot/default/blob_a3gd.1280.jpg"
     },
     {
       "id": 40,
       "name": "Psychological",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://i.ytimg.com/vi/3z8LrTJVATU/maxresdefault.jpg"
     },
     {
       "id": 41,
       "name": "Thriller",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://miro.medium.com/max/2560/1*MGlG6pYsoMaqV3bWSDBDng.jpeg"
     },
     {
       "id": 42,
       "name": "Seinen",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://www.zone-actu.com/wp-content/uploads/psycho-pass-shinya-kogami-tsunemori-akane-anime.jpg"
     },
     {
       "id": 43,
       "name": "Josei",
-      "nsfw": false
+      "nsfw": false,
+      "image": "https://i.ytimg.com/vi/PNdXflNMWxE/maxresdefault.jpg"
     }
   ]
 }

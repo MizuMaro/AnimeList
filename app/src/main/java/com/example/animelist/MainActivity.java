@@ -1,46 +1,54 @@
 package com.example.animelist;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import com.example.animelist.Fragment.GenreFragment;
 import com.example.animelist.Model.AnimeGenreList;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
-import com.google.gson.stream.JsonReader;
-
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    public String inputStreamToString(InputStream inputStream) {
-        try {
-            byte[] bytes = new byte[inputStream.available()];
-            inputStream.read(bytes, 0, bytes.length);
-            String json = new String(bytes);
-            return json;
-        } catch (IOException e) {
-            return null;
-        }
-    }
 
-
+    private BottomNavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        try {
-            String myJson=inputStreamToString(getAssets().open("AnimeGenre.json"));
-            AnimeGenreList myModel = new Gson().fromJson(myJson, AnimeGenreList.class);
-            System.out.println(myJson);
-            System.out.println(myModel.list);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-
+        navigationView = findViewById(R.id.nav_bar);
+        navigationView.setOnNavigationItemSelectedListener(navListener);
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                Fragment selected = null;
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                    switch (menuItem.getItemId()) {
+                        case R.id.genre:
+                            selected = new GenreFragment();
+                            break;
+                        case R.id.myList :
+                            selected = new GenreFragment();
+                            break;
+                        case R.id.search :
+                            selected = new GenreFragment();
+                            break;
+
+                    }
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, selected)
+                            .commit();
+                    return true;
+                }
+            };
+
 }
