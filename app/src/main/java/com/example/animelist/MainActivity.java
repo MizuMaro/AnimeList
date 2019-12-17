@@ -19,6 +19,8 @@ import com.example.animelist.Fragment.SearchFragment;
 import com.example.animelist.Model.AnimeListResult;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView navigationView;
@@ -36,11 +38,12 @@ public class MainActivity extends AppCompatActivity {
     private void getListByGenre(){
         /*Create handle for the RetrofitInstance interface*/
         api = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
-        Call<AnimeListResult> call = api.getAnimeByGenre(1);
+        Call<AnimeListResult> call = api.getAnimeByGenrec(1);
+
         call.enqueue(new Callback<AnimeListResult>() {
             @Override
             public void onResponse(Call<AnimeListResult> call, Response<AnimeListResult> response) {
-                System.out.println(response);
+                System.out.println(call.request());
                  response.body();
 
             }
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("Anime by Genre" + "Failed to get "+t.getMessage());
             }
         });
+
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {

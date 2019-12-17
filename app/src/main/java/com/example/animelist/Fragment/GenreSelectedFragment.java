@@ -32,15 +32,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 public class GenreSelectedFragment extends Fragment {
     int genreId;
     RequestManager requestManager;
@@ -56,7 +50,7 @@ public class GenreSelectedFragment extends Fragment {
     private void getListByGenre(){
         /*Create handle for the RetrofitInstance interface*/
         api = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
-        Call<AnimeListResult> call = api.getAnimeByGenre(genreId);
+        Call<AnimeListResult> call = api.getAnimeByGenrec(genreId);
         call.enqueue(new Callback<AnimeListResult>() {
             @Override
             public void onResponse(Call<AnimeListResult> call, Response<AnimeListResult> response) {
