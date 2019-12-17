@@ -9,7 +9,7 @@ public class AnimeGenreList {
     @SerializedName("AnimeGenreList")
     public ArrayList<AnimeGenre> list;
 
-    public AnimeGenre getAnime(String genre){
+    public AnimeGenre getAnimeGenre(String genre){
         for(AnimeGenre g : list){
             if(g.getName().equalsIgnoreCase(genre)){
                 return g;

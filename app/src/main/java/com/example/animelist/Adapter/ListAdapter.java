@@ -9,27 +9,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.RequestManager;
-import com.example.animelist.Fragment.AnimeListFragment;
-import com.example.animelist.Fragment.GenreSelectedFragment;
 import com.example.animelist.Model.AnimeGenreList;
+import com.example.animelist.Model.AnimeListResult;
 import com.example.animelist.R;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.GenreViewHolder> implements View.OnClickListener{
-    AnimeGenreList genreList ;
-    Fragment fragment;
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.GenreViewHolder> implements View.OnClickListener{
+    AnimeListResult animeListResult ;
     private final RequestManager glide;
-    public GenreAdapter(AnimeGenreList genreList, RequestManager glide, Fragment fragment) {
-        this.fragment = fragment;
-        this.genreList = genreList;
+    public ListAdapter(AnimeListResult animeListResult, RequestManager glide) {
+        this.animeListResult = animeListResult;
         this.glide= glide;
         //chargement de toutes les images de categories
-        for(AnimeGenreList.AnimeGenre a : genreList.list){
-            glide.load(a.getImage());
-        }
+
     }
 
 
@@ -46,7 +40,7 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.GenreViewHol
 
     @Override
     public void onBindViewHolder(@NonNull GenreViewHolder holder, int position) {
-        AnimeGenreList.AnimeGenre genre = genreList.list.get(position);
+        AnimeListResult.AnimePreview genre = animeListResult.anime.get(position);
         String current = genre.getName();
         holder.txtGenre.setText(current);
         glide.load(genre.getImage()).into(holder.img);
@@ -54,23 +48,18 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.GenreViewHol
 
     @Override
     public int getItemCount() {
-        return genreList.list.size();
+        return animeListResult.anime == null ? 0 : animeListResult.anime.size();
     }
 
     @Override
     public void onClick(View v) {
-        AnimeGenreList.AnimeGenre selected ;
+        AnimeListResult.AnimePreview selected ;
         TextView genre  = v.findViewById(R.id.genreTextView);
         Context context = v.getContext();
         String current = genre.getText().toString();
-        selected = genreList.getAnimeGenre(current);
-        fragment.getFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_container, new GenreSelectedFragment(selected.getId()))
-                .addToBackStack(null)
-                .commit();
-        Toast.makeText(context,selected.getId()+"", Toast.LENGTH_SHORT).show();
+        selected = animeListResult.getAnimePreview(current);
 
+        Toast.makeText(context,selected.getId()+"", Toast.LENGTH_SHORT).show();
     }
 
     public class  GenreViewHolder extends RecyclerView.ViewHolder {

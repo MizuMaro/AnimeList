@@ -23,6 +23,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class GenreFragment extends Fragment {
 
+
+
     public String inputStreamToString(InputStream inputStream) {
         try {
             byte[] bytes = new byte[inputStream.available()];
@@ -50,7 +52,7 @@ public class GenreFragment extends Fragment {
         }
         view= inflater.inflate(R.layout.fragment_genre, container, false);
         recyclerView =view.findViewById(R.id.recycler_genre);
-        GenreAdapter adapter = new GenreAdapter(genreList, Glide.with(this));
+        GenreAdapter adapter = new GenreAdapter(genreList, Glide.with(this),GenreFragment.this);
         recyclerView.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(container.getContext());
 
@@ -58,6 +60,12 @@ public class GenreFragment extends Fragment {
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(container.getContext(),DividerItemDecoration.VERTICAL);
 
         recyclerView.addItemDecoration(itemDecoration);
+
         return view;
     }
+
+
+
+
+
 }
