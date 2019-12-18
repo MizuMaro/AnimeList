@@ -17,7 +17,7 @@ public class AnimeDetail {
     @SerializedName("episodes")
     private int episodes;
     @SerializedName("score")
-    private long score;
+    private double score;
     @SerializedName("synopsis")
     private String synopsis;
     @SerializedName("premiered")
@@ -61,7 +61,7 @@ public class AnimeDetail {
         this.episodes = episodes;
     }
 
-    public long getScore() {
+    public double getScore() {
         return score;
     }
 
