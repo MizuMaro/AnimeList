@@ -69,7 +69,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.GenreViewHolde
         String current = genre.getText().toString();
         selected = animeListResult.getAnimePreview(current);
         Intent myIntent = new Intent(v.getContext(), DetailAnime.class);
-        //myIntent.putExtra("key", value); //Optional parameters
+        myIntent.putExtra("id", selected.getId()); //Optional parameters
         v.getContext().startActivity(myIntent);
         Toast.makeText(context,selected.getId()+"", Toast.LENGTH_SHORT).show();
     }

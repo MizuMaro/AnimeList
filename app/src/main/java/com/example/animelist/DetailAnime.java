@@ -2,6 +2,7 @@ package com.example.animelist;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -34,19 +35,23 @@ public class DetailAnime extends AppCompatActivity {
     private TextView txtScore;
     private ImageView img;
     private RequestManager requestManager;
+    private int id;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.anime_detail);
         mContext = getApplicationContext();
         requestManager= Glide.with(this);
+        Intent intent = getIntent();
+        id = intent.getIntExtra("id",1);
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        getAnimeDetail();
+
+        getAnimeDetail(id);
     }
 
     @Override
@@ -56,10 +61,10 @@ public class DetailAnime extends AppCompatActivity {
 
     ApiInterface api;
     AnimeDetail result ;
-    private void getAnimeDetail(){
+    private void getAnimeDetail(int id){
         /*Create handle for the RetrofitInstance interface*/
         api = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
-        Call<AnimeDetail> call = api.getAnimeDetail(1);
+        Call<AnimeDetail> call = api.getAnimeDetail(id);
         call.enqueue(new Callback<AnimeDetail>() {
             @Override
             public void onResponse(Call<AnimeDetail> call, Response<AnimeDetail> response) {
