@@ -1,6 +1,5 @@
 package com.example.animelist.Fragment;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +25,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Fragment qui permet d'afficher la liste des animes par genre
+ */
 public class GenreSelectedFragment extends Fragment {
 
     int genreId;
@@ -37,13 +39,22 @@ public class GenreSelectedFragment extends Fragment {
     private View view;
     ApiInterface api;
 
+    /**
+     * Constructeur qui prend en parametre l'id du genre
+     * @param genreId
+     */
     public GenreSelectedFragment(int genreId) {
         this.genreId = genreId;
     }
 
 
-
-
+    /**
+     * Methode de creation de la vue contenant la liste des animes par genre
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -72,7 +83,10 @@ public class GenreSelectedFragment extends Fragment {
         return view;
     }
 
-    public void generateList() {
+    /**
+     * Methode qui prepare le recyclerView avec la liste des animes dans l'adapter
+     */
+    public void setupRecyclerView() {
         recyclerView.setVisibility(view.VISIBLE);
         tryAgain.setVisibility(View.GONE);
         progressBar.setVisibility(View.GONE);
@@ -86,6 +100,9 @@ public class GenreSelectedFragment extends Fragment {
 
     }
 
+    /**
+     * Methode qui effectue l'appel à l'api avec le genreId afin de récuperer la liste des animes
+     */
     private void getListByGenre(){
         /*Create handle for the RetrofitInstance interface*/
         api = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
@@ -95,7 +112,7 @@ public class GenreSelectedFragment extends Fragment {
             public void onResponse(Call<AnimeListResult> call, Response<AnimeListResult> response) {
                 if(response.isSuccessful()) {
                     result = response.body();
-                    generateList();
+                    setupRecyclerView();
                 }else{
                     tryAgain.setVisibility(View.VISIBLE);
                     progressBar.setVisibility(View.GONE);
@@ -105,7 +122,7 @@ public class GenreSelectedFragment extends Fragment {
 
             @Override
             public void onFailure(Call<AnimeListResult> call, Throwable t) {
-                System.out.println("Anime by Genre" + "Failed to get "+t.getMessage());
+                System.out.println("Anime by Genre, Failed to get "+t.getMessage());
                 Toast.makeText(view.getContext(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });

@@ -5,6 +5,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
+
+/**
+ * Model qui permet de serialize le resultat lorsqu'on recupere la liste des animes par genre
+ */
 public class AnimeListResult {
 
     @SerializedName("anime")

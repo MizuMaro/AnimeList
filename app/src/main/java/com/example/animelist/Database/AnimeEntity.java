@@ -1,17 +1,17 @@
 package com.example.animelist.Database;
 
-import com.google.gson.annotations.SerializedName;
-
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ * Entity qui sera sauvegardé dans la base de donnée
+ */
 @Entity
 public class AnimeEntity {
     @NonNull
     @PrimaryKey
     private String id;
-
     private String image_url;
     private String title;
     private String status;

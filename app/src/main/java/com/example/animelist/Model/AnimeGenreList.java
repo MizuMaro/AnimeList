@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
+/**
+ * Model qui permet de serialize la liste des genre depuis l'asset  AnimeGenre.json
+ * Asset Crée par moi même afin de pouvoir utiliser l'appel avec un genre en parametre
+ */
 public class AnimeGenreList {
 
     @SerializedName("AnimeGenreList")

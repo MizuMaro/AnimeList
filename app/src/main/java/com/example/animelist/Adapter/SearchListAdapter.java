@@ -7,16 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.RequestManager;
 import com.example.animelist.DetailAnime;
-import com.example.animelist.Model.AnimeListResult;
 import com.example.animelist.Model.AnimeSearchResult;
 import com.example.animelist.R;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * Adapter du recyclerView affichant la liste des animes par recherche
+ */
 public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.GenreViewHolder> implements View.OnClickListener{
 
     AnimeSearchResult animeListResult ;
@@ -56,6 +56,10 @@ public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.Ge
             return 0;
     }
 
+    /**
+     * Methode qui associe l'action a chaque item permettant de faire appel a l'activité DetailAnime affichant le detail de l'anime par son id depuis l'api
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         AnimeSearchResult.AnimePreview selected ;

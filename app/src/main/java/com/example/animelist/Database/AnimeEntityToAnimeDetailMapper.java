@@ -1,7 +1,9 @@
 package com.example.animelist.Database;
 
 import com.example.animelist.Model.AnimeDetail;
-
+/**
+ * Mapper d'AnimeEntity en AnimeDetail
+ */
 public class AnimeEntityToAnimeDetailMapper {
 
     public static AnimeDetail map(AnimeEntity animeEntity) {

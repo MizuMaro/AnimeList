@@ -4,17 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
-import com.example.animelist.Adapter.ListAdapter;
 import com.example.animelist.Adapter.SearchListAdapter;
 import com.example.animelist.Api.ApiInterface;
 import com.example.animelist.Api.RetrofitClientInstance;
-import com.example.animelist.Model.AnimeListResult;
 import com.example.animelist.Model.AnimeSearchResult;
 import com.example.animelist.R;
 
@@ -25,13 +22,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Fragment pour la recherche d'anime
+ */
 public class SearchFragment extends Fragment {
 
     private View view;
@@ -42,6 +41,13 @@ public class SearchFragment extends Fragment {
     private SearchView searchView;
     ApiInterface api;
 
+    /**
+     * Creation de la vue avec l'initialisation des elements du layout fragment_search
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -55,7 +61,10 @@ public class SearchFragment extends Fragment {
         return view;
     }
 
-
+    /**
+     * Methode de parametrage de la barre de recherche afin d'effectuer une recherche après avoir rentré 3 lettres (limitation de l'api qui demande au minimum 3 characteres)
+     *
+     */
     private void prepareSearchView() {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             private Timer timer = new Timer();
@@ -92,7 +101,10 @@ public class SearchFragment extends Fragment {
         });
     }
 
-
+    /**
+     * Methode qui effectue l'appel à l'api avec le mot clé en parametre pour la recherche
+     * @param query
+     */
     private void getListByGenre(String query){
         /*Create handle for the RetrofitInstance interface*/
         api = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
@@ -118,6 +130,9 @@ public class SearchFragment extends Fragment {
         });
     }
 
+    /**
+     *Methode qui met à jours le recyclerView avec les données récuperer depuis l'api
+     */
     public void generateList() {
         recyclerView.setVisibility(view.VISIBLE);
         progressBar.setVisibility(View.GONE);

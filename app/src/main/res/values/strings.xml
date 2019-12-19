@@ -2,11 +2,11 @@
     <string name="app_name">AnimeList</string>
     <string name="list">My List</string>
     <string name="genre">Genre</string>
-    <string name="myList">Ma liste</string>
+    <string name="myList">My list</string>
     <string name="search">Rechercher</string>
     <string name="synopsis">Synopsis :</string>
-    <string name="format">Format :</string>
-    <string name="sortie">Sortie :</string>
+    <string name="format">Type :</string>
+    <string name="sortie">Date :</string>
     <string name="score">Score :</string>
     <string name="episodes">episodes :</string>
     <string name="status">Status :</string>

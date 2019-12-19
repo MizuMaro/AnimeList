@@ -8,11 +8,18 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Class qui initialise Retrofit afin d'effectuer les appels vers l'api
+ */
 public class RetrofitClientInstance {
 
     private static Retrofit retrofit;
-
     private static String BASE_URL = "http://api.jikan.moe/v3/";
+
+    /**
+     * Configure et récupere retrofit
+     * @return
+     */
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
 

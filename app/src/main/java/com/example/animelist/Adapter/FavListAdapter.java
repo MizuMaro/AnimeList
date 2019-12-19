@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.bumptech.glide.RequestManager;
 import com.example.animelist.DetailAnime;
 import com.example.animelist.Model.AnimeDetail;
-import com.example.animelist.Model.AnimeListResult;
 import com.example.animelist.R;
 
 import java.util.List;
@@ -19,6 +18,9 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * Adapter du recyclerView affichant la liste des animes favoris
+ */
 public class FavListAdapter extends RecyclerView.Adapter<FavListAdapter.GenreViewHolder> implements View.OnClickListener{
 
     List<AnimeDetail> animeListResult ;
@@ -61,7 +63,10 @@ public class FavListAdapter extends RecyclerView.Adapter<FavListAdapter.GenreVie
         else
             return 0;
     }
-
+    /**
+     * Methode qui associe l'action a chaque item permettant d'afficher l'activité DetailAnime avec l'objet AnimeDetail selectionné afin de l'afficher sans appel à l'api
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         AnimeDetail selected = null;

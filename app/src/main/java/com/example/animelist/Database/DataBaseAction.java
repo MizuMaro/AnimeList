@@ -10,15 +10,27 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableCompletableObserver;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * Class qui permet d'initialiser la base de donnée et effectuer des requetes
+ */
 public class DataBaseAction {
 
     Context apContext;
+    AnimeDatabase db;
+
+
+    /**
+     * Associe le context de l'application
+     * @param context
+     */
     public DataBaseAction(Context context) {
         this.apContext=context;
     }
 
-    AnimeDatabase db;
-
+    /**
+     * Initialise la base AnimeDatabase is elle n'est pas initialisé
+     * @return
+     */
     public AnimeDatabase getDb(){
         if (db == null) {
             db = Room.databaseBuilder(apContext,
@@ -27,6 +39,10 @@ public class DataBaseAction {
         return db;
     }
 
+    /**
+     * Retire de la base des favoris l'anime en parametre
+     * @param result
+     */
     @SuppressLint("CheckResult")
     public void removeFromFav(AnimeDetail result){
         getDb();
@@ -47,6 +63,10 @@ public class DataBaseAction {
                 });
     }
 
+    /**
+     * Ajoute dans la base des favoris l'anime en parametre
+     * @param result
+     */
     @SuppressLint("CheckResult")
     public void addToFav(AnimeDetail result){
         getDb();

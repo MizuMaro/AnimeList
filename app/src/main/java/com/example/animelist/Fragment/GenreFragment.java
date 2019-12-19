@@ -22,6 +22,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * Fragment pour l'affichage de la liste des genres
+ */
 public class GenreFragment extends Fragment {
 
     private RecyclerView recyclerView;
@@ -29,7 +32,11 @@ public class GenreFragment extends Fragment {
     private ProgressBar progressBar;
 
 
-
+    /**
+     * Methode qui permet de lire le fichier Json
+     * @param inputStream
+     * @return
+     */
     public String inputStreamToString(InputStream inputStream) {
         try {
             byte[] bytes = new byte[inputStream.available()];
@@ -41,6 +48,15 @@ public class GenreFragment extends Fragment {
         }
     }
 
+
+    /**
+     * Methode de création de la vue avec la liste des genres si le fichier à bien été lu
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+/**
+ * Model qui permet de serialize le resultat lorsqu'on recupere un anime par son id
+ */
 public class AnimeDetail implements Serializable {
 
 

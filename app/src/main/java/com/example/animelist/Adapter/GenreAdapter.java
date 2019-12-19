@@ -6,24 +6,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.bumptech.glide.RequestManager;
-import com.example.animelist.Fragment.AnimeListFragment;
 import com.example.animelist.Fragment.GenreSelectedFragment;
 import com.example.animelist.Model.AnimeGenreList;
 import com.example.animelist.R;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * Adapter du recyclerView affichant la liste des genres
+ */
 public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.GenreViewHolder> implements View.OnClickListener{
 
-    AnimeGenreList genreList ;
-    Fragment fragment;
-
+    private AnimeGenreList genreList ;
+    private Fragment fragment;
     private final RequestManager glide;
+
     public GenreAdapter(AnimeGenreList genreList, RequestManager glide, Fragment fragment) {
         this.fragment = fragment;
         this.genreList = genreList;
@@ -33,6 +32,7 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.GenreViewHol
             glide.load(a.getImage());
         }
     }
+
 
 
     @NonNull
@@ -59,6 +59,10 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.GenreViewHol
         return genreList.list.size();
     }
 
+    /**
+     * Methode qui associe l'action a chaque item permettant de faire appel au fragment GenreSelectedFragment
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         AnimeGenreList.AnimeGenre selected ;
