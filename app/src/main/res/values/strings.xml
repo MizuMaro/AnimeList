@@ -4,4 +4,13 @@
     <string name="genre">Genre</string>
     <string name="myList">Ma liste</string>
     <string name="search">Rechercher</string>
+    <string name="synopsis">Synopsis :</string>
+    <string name="format">Format :</string>
+    <string name="sortie">Sortie :</string>
+    <string name="score">Score :</string>
+    <string name="episodes">episodes :</string>
+    <string name="status">Status :</string>
+    <string name="anime_poster">anime poster</string>
+    <string name="redirectTo">redirectTo</string>
+    <string name="button">Button</string>
 </resources>

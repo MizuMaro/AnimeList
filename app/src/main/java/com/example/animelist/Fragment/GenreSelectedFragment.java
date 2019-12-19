@@ -1,9 +1,12 @@
 package com.example.animelist.Fragment;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -25,12 +28,15 @@ import retrofit2.Response;
 public class GenreSelectedFragment extends Fragment {
     int genreId;
     RequestManager requestManager;
+    private ProgressBar progressBar;
+
     public GenreSelectedFragment(int genreId) {
         this.genreId = genreId;
     }
 
     AnimeListResult result;
     private RecyclerView recyclerView;
+    private Button tryAgain;
     private View view;
     ApiInterface api;
 
@@ -41,8 +47,13 @@ public class GenreSelectedFragment extends Fragment {
         call.enqueue(new Callback<AnimeListResult>() {
             @Override
             public void onResponse(Call<AnimeListResult> call, Response<AnimeListResult> response) {
-                result = response.body();
-                generateList();
+                if(response.isSuccessful()) {
+                    result = response.body();
+                    generateList();
+                }else{
+                    tryAgain.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
+                }
 
             }
 
@@ -53,12 +64,15 @@ public class GenreSelectedFragment extends Fragment {
             }
         });
     }
+
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         requestManager=Glide.with(this);
-        getListByGenre();
 
 
     }
@@ -67,13 +81,33 @@ public class GenreSelectedFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_genre, container, false);
+        recyclerView =view.findViewById(R.id.recycler_genre);
+        recyclerView.setVisibility(View.INVISIBLE);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBarGenre);
+        progressBar.setVisibility(View.VISIBLE);
 
+        tryAgain = (Button) view.findViewById(R.id.retry);
+        tryAgain.setVisibility(View.GONE);
+        tryAgain.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+
+                tryAgain.setVisibility(View.GONE);
+                getListByGenre();
+            }
+
+        });
+
+        getListByGenre();
         return view;
     }
 
-    public void generateList() {
-        recyclerView =view.findViewById(R.id.recycler_genre);
-
+        public void generateList() {
+        recyclerView.setVisibility(view.VISIBLE);
+        tryAgain.setVisibility(View.GONE);
+        progressBar.setVisibility(View.GONE);
         ListAdapter adapter = new ListAdapter(result,requestManager) ;
         recyclerView.setAdapter(adapter);
         //LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());

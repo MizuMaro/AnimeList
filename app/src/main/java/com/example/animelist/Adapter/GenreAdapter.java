@@ -61,7 +61,6 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.GenreViewHol
     public void onClick(View v) {
         AnimeGenreList.AnimeGenre selected ;
         TextView genre  = v.findViewById(R.id.genreTextView);
-        Context context = v.getContext();
         String current = genre.getText().toString();
         selected = genreList.getAnimeGenre(current);
         fragment.getFragmentManager()
@@ -69,7 +68,6 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.GenreViewHol
                 .replace(R.id.fragment_container, new GenreSelectedFragment(selected.getId()))
                 .addToBackStack(null)
                 .commit();
-        Toast.makeText(context,selected.getId()+"", Toast.LENGTH_SHORT).show();
 
     }
 

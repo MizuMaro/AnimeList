@@ -1,44 +1,27 @@
-package com.example.animelist.Model;
+package com.example.animelist.Database;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-public class AnimeDetail implements Serializable {
+@Entity
+public class AnimeEntity {
+    @NonNull
+    @PrimaryKey
+    private String id;
 
-
-
-    @SerializedName("mal_id")
-    private int id;
-    @SerializedName("image_url")
     private String image_url;
-    @SerializedName("title")
     private String title;
-    @SerializedName("status")
     private String status;
-    @SerializedName("episodes")
     private int episodes;
-    @SerializedName("score")
-    private double score;
-    @SerializedName("synopsis")
+    private long score;
     private String synopsis;
-    @SerializedName("premiered")
     private String premiered;
-    @SerializedName("duration")
     private String duration;
-    @SerializedName("type")
     private String type;
-    @SerializedName("trailer_url")
     private String trailer_url;
-
-    private Boolean isFavorite = false;
-    public void setFavorite(boolean fav) {
-        isFavorite = fav;
-    }
-
-    public boolean isFavorite() {
-        return isFavorite;
-    }
 
     public String getImage_url() {
         return image_url;
@@ -72,7 +55,7 @@ public class AnimeDetail implements Serializable {
         this.episodes = episodes;
     }
 
-    public double getScore() {
+    public long getScore() {
         return score;
     }
 
@@ -120,11 +103,12 @@ public class AnimeDetail implements Serializable {
         this.trailer_url = trailer_url;
     }
 
-    public int getId() {
+    public String  getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
+
 }

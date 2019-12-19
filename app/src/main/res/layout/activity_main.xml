@@ -15,7 +15,7 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/nav_bar"
             android:layout_width="match_parent"
-            android:layout_height="81dp"
+            android:layout_height="80dp"
             android:layout_gravity="top"
             android:background="@color/colorPrimary"
             app:itemIconTint="@color/colorAccent"
@@ -29,7 +29,8 @@
             <FrameLayout
                 android:id="@+id/fragment_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/background">
 
             </FrameLayout>
         </RelativeLayout>

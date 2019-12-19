@@ -19,12 +19,12 @@
             android:layout_marginBottom="2dp"
             android:background="#135580"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/recycler_genre"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_fav"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_genre"
+            android:id="@+id/recycler_fav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"

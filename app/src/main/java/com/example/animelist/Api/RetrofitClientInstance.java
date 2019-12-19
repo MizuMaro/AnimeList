@@ -12,7 +12,7 @@ public class RetrofitClientInstance {
 
     private static Retrofit retrofit;
 
-    private static String BASE_URL = "http://api.jikan.moe/";
+    private static String BASE_URL = "http://api.jikan.moe/v3/";
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
 
@@ -31,4 +31,6 @@ public class RetrofitClientInstance {
         }
         return retrofit;
     }
+
+
 }
