@@ -22,9 +22,15 @@ import com.example.animelist.Api.ApiInterface;
 import com.example.animelist.Api.RetrofitClientInstance;
 import com.example.animelist.Database.DataBaseAction;
 import com.example.animelist.Model.AnimeDetail;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -58,6 +64,7 @@ public class DetailAnime extends AppCompatActivity {
     private View top;
     private DataBaseAction db;
     private ApiInterface api;
+    private YouTubePlayerView youTubePlayerView;
     private AnimeDetail result ;
 
     /**
@@ -126,7 +133,6 @@ public class DetailAnime extends AppCompatActivity {
             public void onResponse(Call<AnimeDetail> call, Response<AnimeDetail> response) {
                 if(response.isSuccessful()) {
                     result = response.body();
-
                     generateDetail();
                 }else{
                     tryAgain.setVisibility(View.VISIBLE);
@@ -170,11 +176,58 @@ public class DetailAnime extends AppCompatActivity {
                 });
     }
 
+
+    /**
+     * Extraction du youtube id depuis une url source https://gist.github.com/jvanderwee/b30fdb496acff43aef8e
+     */
+    final String youTubeUrlRegEx = "^(https?)?(://)?(www.)?(m.)?((youtube.com)|(youtu.be))/";
+    final String[] videoIdRegex = { "\\?vi?=([^&]*)","watch\\?.*v=([^&]*)", "(?:embed|vi?)/([^/?]*)", "^([A-Za-z0-9\\-]*)"};
+
+    public String extractVideoIdFromUrl(String url) {
+        String youTubeLinkWithoutProtocolAndDomain = youTubeLinkWithoutProtocolAndDomain(url);
+
+        for(String regex : videoIdRegex) {
+            Pattern compiledPattern = Pattern.compile(regex);
+            Matcher matcher = compiledPattern.matcher(youTubeLinkWithoutProtocolAndDomain);
+
+            if(matcher.find()){
+                return matcher.group(1);
+            }
+        }
+
+        return null;
+    }
+
+
+    private String youTubeLinkWithoutProtocolAndDomain(String url) {
+        Pattern compiledPattern = Pattern.compile(youTubeUrlRegEx);
+        Matcher matcher = compiledPattern.matcher(url);
+
+        if(matcher.find()){
+            return url.replace(matcher.group(), "");
+        }
+        return url;
+    }
+
+
     /**
      * Methode qui permet d'affecter les données à l'affiche une fois les données récuperé
      */
     private void generateDetail() {
         isFav();
+        if(result.getTrailer_url() != null && result.getTrailer_url().contains("youtu")) {
+            youTubePlayerView = (YouTubePlayerView)findViewById(R.id.youtube_player_view);
+
+            youTubePlayerView.setVisibility(View.VISIBLE);
+            getLifecycle().addObserver(youTubePlayerView);
+            youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+                @Override
+                public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+                    String videoId = extractVideoIdFromUrl(result.getTrailer_url());
+                    youTubePlayer.loadVideo(videoId, 0);
+                }
+            });
+        }
         requestManager.load(result.getImage_url()).into(img);
         scrollDetail.setVisibility(View.VISIBLE);
         txtTitle.setText(result.getTitle());

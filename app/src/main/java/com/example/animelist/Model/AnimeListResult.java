@@ -15,17 +15,6 @@ public class AnimeListResult {
     @Expose
     public ArrayList<AnimePreview> anime;
 
-    public AnimePreview getAnimePreview(String genre){
-        for(AnimePreview g : anime){
-            if(g.getName().equalsIgnoreCase(genre)){
-                return g;
-            }
-        }
-        return null;
-    }
-
-
-
     static public class AnimePreview{
         @SerializedName("mal_id")
         private int id;
@@ -58,4 +47,12 @@ public class AnimeListResult {
         }
     }
 
+    public AnimePreview getAnimePreview(String genre){
+        for(AnimePreview g : anime){
+            if(g.getName().equalsIgnoreCase(genre)){
+                return g;
+            }
+        }
+        return null;
+    }
 }

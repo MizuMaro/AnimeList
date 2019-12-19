@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        android:visibility="gone">
+        android:visibility="visible">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -111,7 +111,7 @@
                 android:layout_marginEnd="8dp"
 
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="@+id/synopsis"
+                app:layout_constraintBottom_toTopOf="@id/linearYou"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/detail_title">
@@ -273,6 +273,30 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/linearYou"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/synopsis"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/d"
+                tools:visibility="visible">
+
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/youtube_player_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="16dp"
+                    app:autoPlay="true"
+                    app:showFullScreenButton="false"
+                    app:videoId=" "
+                    tools:visibility="gone" />
+            </LinearLayout>
             <TextView
                 android:id="@+id/synopsis"
                 android:layout_width="match_parent"
@@ -286,7 +310,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/detail_synopsis"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/d" />
+                app:layout_constraintTop_toBottomOf="@id/linearYou" />
 
             <TextView
                 android:id="@+id/detail_synopsis"
