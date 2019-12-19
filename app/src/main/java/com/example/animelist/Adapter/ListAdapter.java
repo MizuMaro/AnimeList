@@ -7,12 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.RequestManager;
 import com.example.animelist.DetailAnime;
-import com.example.animelist.MainActivity;
-import com.example.animelist.Model.AnimeGenreList;
 import com.example.animelist.Model.AnimeListResult;
 import com.example.animelist.R;
 
@@ -20,13 +17,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.GenreViewHolder> implements View.OnClickListener{
+
     AnimeListResult animeListResult ;
     private final RequestManager glide;
+
     public ListAdapter(AnimeListResult animeListResult, RequestManager glide) {
         this.animeListResult = animeListResult;
         this.glide= glide;
-        //chargement de toutes les images de categories
-
     }
 
 

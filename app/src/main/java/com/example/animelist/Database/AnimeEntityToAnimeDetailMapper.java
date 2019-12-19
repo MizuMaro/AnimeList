@@ -17,6 +17,7 @@ public class AnimeEntityToAnimeDetailMapper {
         animeDetail.setType(animeEntity.getType());
         animeDetail.setStatus(animeEntity.getStatus());
         animeDetail.setTrailer_url(animeEntity.getTrailer_url());
+        animeDetail.setUrl(animeEntity.getUrl());
         return animeDetail;
     }
 }

@@ -10,24 +10,21 @@ import android.widget.TextView;
 
 import com.bumptech.glide.RequestManager;
 import com.example.animelist.DetailAnime;
-import com.example.animelist.Model.AnimeDetail;
 import com.example.animelist.Model.AnimeListResult;
+import com.example.animelist.Model.AnimeSearchResult;
 import com.example.animelist.R;
-
-import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class FavListAdapter extends RecyclerView.Adapter<FavListAdapter.GenreViewHolder> implements View.OnClickListener{
+public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.GenreViewHolder> implements View.OnClickListener{
 
-    List<AnimeDetail> animeListResult ;
+    AnimeSearchResult animeListResult ;
     private final RequestManager glide;
 
-    public FavListAdapter(List animeListResult, RequestManager glide) {
+    public SearchListAdapter(AnimeSearchResult animeListResult, RequestManager glide) {
         this.animeListResult = animeListResult;
         this.glide= glide;
-
     }
 
 
@@ -36,7 +33,7 @@ public class FavListAdapter extends RecyclerView.Adapter<FavListAdapter.GenreVie
     public GenreViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View genreView = inflater.inflate(R.layout.fav_item,parent,false);
+        View genreView = inflater.inflate(R.layout.search_item,parent,false);
         GenreViewHolder viewHolder = new GenreViewHolder(genreView);
         genreView.setOnClickListener(this);
         return viewHolder;
@@ -44,38 +41,29 @@ public class FavListAdapter extends RecyclerView.Adapter<FavListAdapter.GenreVie
 
     @Override
     public void onBindViewHolder(@NonNull GenreViewHolder holder, int position) {
-        AnimeDetail anime = animeListResult.get(position);
-
-
-
-        holder.txtTitle.setText(anime.getTitle());
-        holder.txtEpisodes.setText(anime.getEpisodes()+ " episodes");
-        holder.txtType.setText(anime.getType());
-        glide.load(anime.getImage_url()).into(holder.img);
+        AnimeSearchResult.AnimePreview preview = animeListResult.results.get(position);
+        holder.txtTitle.setText(preview.getName());
+        holder.txtEpisodes.setText(preview.getEpisodes()+ " episodes");
+        holder.txtType.setText(preview.getType());
+        glide.load(preview.getImage()).into(holder.img);
     }
 
     @Override
     public int getItemCount() {
         if (animeListResult != null)
-            return animeListResult == null ? 0 : animeListResult.size();
+            return animeListResult.results == null ? 0 : animeListResult.results.size();
         else
             return 0;
     }
 
     @Override
     public void onClick(View v) {
-        AnimeDetail selected = null;
-
-        TextView genre  = v.findViewById(R.id.favTitleTextView);
+        AnimeSearchResult.AnimePreview selected ;
+        TextView genre  = v.findViewById(R.id.searchTitleTextView);
         String current = genre.getText().toString();
-        for(AnimeDetail s : animeListResult )
-        {
-            if(s.getTitle().contains(current)){
-                selected = s;
-            }
-        }
+        selected = animeListResult.getAnimePreview(current);
         Intent myIntent = new Intent(v.getContext(), DetailAnime.class);
-        myIntent.putExtra("animeDetail",selected); //Optional parameters
+        myIntent.putExtra("id", selected.getId()); //Optional parameters
         v.getContext().startActivity(myIntent);
     }
 
@@ -87,10 +75,10 @@ public class FavListAdapter extends RecyclerView.Adapter<FavListAdapter.GenreVie
 
         public GenreViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtEpisodes =  (TextView) itemView.findViewById(R.id.favEpisodesTextView);
-            txtTitle =  (TextView)itemView.findViewById(R.id.favTitleTextView);
-            txtType = (TextView) itemView.findViewById(R.id.favTypeTextView);
-            img = (ImageView) itemView.findViewById(R.id.favImage);
+            txtEpisodes =  (TextView) itemView.findViewById(R.id.searchEpisodesTextView);
+            txtTitle =  (TextView)itemView.findViewById(R.id.searchTitleTextView);
+            txtType = (TextView) itemView.findViewById(R.id.searchTypeTextView);
+            img = (ImageView) itemView.findViewById(R.id.searchImage);
 
         }
     }

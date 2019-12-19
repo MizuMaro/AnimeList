@@ -19,8 +19,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.GenreViewHolder> implements View.OnClickListener{
+
     AnimeGenreList genreList ;
     Fragment fragment;
+
     private final RequestManager glide;
     public GenreAdapter(AnimeGenreList genreList, RequestManager glide, Fragment fragment) {
         this.fragment = fragment;

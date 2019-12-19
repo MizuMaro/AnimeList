@@ -22,6 +22,15 @@ public class AnimeEntity {
     private String duration;
     private String type;
     private String trailer_url;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getImage_url() {
         return image_url;

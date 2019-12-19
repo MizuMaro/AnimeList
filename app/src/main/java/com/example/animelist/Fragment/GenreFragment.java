@@ -24,6 +24,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class GenreFragment extends Fragment {
 
+    private RecyclerView recyclerView;
+    private View view;
+    private ProgressBar progressBar;
+
 
 
     public String inputStreamToString(InputStream inputStream) {
@@ -36,9 +40,6 @@ public class GenreFragment extends Fragment {
             return null;
         }
     }
-    private RecyclerView recyclerView;
-    private View view;
-    private ProgressBar progressBar;
 
     @Nullable
     @Override

@@ -4,6 +4,7 @@ package com.example.animelist;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -54,6 +55,7 @@ public class DetailAnime extends AppCompatActivity {
     private TextView txtPremiered;
     private TextView txtScore;
     private ImageView img;
+    private Button redirect;
     private RequestManager requestManager;
     private ProgressBar progressBar;
     private int id;
@@ -82,6 +84,7 @@ public class DetailAnime extends AppCompatActivity {
         txtPremiered = (TextView) findViewById(R.id.detail_premiered);
         txtSynopsis = (TextView) findViewById(R.id.detail_synopsis);
         txtScore = (TextView) findViewById(R.id.detail_score);
+        redirect= (Button) findViewById(R.id.redirectMal);
         fav = (ToggleButton) findViewById(R.id.button_favorite);
         progressBar = (ProgressBar) findViewById(R.id.progressBarDetail);
         scrollDetail = (ScrollView) findViewById(R.id.scrollDetail);
@@ -204,6 +207,19 @@ public class DetailAnime extends AppCompatActivity {
                     db.removeFromFav(result);
 
                 }
+            }
+        });
+        redirect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Uri uri = Uri.parse(result.getUrl()); // missing 'http://' will cause crashed
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(),"Url invalide",Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

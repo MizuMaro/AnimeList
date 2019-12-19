@@ -36,71 +36,50 @@ public class AnimeListFragment extends Fragment {
     RequestManager requestManager;
     private RecyclerView recyclerView;
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         requestManager= Glide.with(this);
-
 
     }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         view= inflater.inflate(R.layout.fragment_my_list, container, false);
-
          db = new DataBaseAction(getContext());
-
-
-
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
         getAnimesFromFav();
     }
 
     @SuppressLint("CheckResult")
     public void getAnimesFromFav(){
         listFav = new ArrayList<>();
-
         db.getDb().animeDao().loadFavorites().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new ResourceSubscriber<List<AnimeEntity>>() {
-
-
                     @Override
                     public void onNext(List<AnimeEntity> animeEntities) {
                         for(AnimeEntity a : animeEntities){
                             listFav.add(AnimeEntityToAnimeDetailMapper.map(a));
                         }
-//
-
                         recyclerView =view.findViewById(R.id.recycler_fav);
                         FavListAdapter adapter = new FavListAdapter(listFav,requestManager) ;
                         recyclerView.setAdapter(adapter);
                         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
-
-
                         recyclerView.setLayoutManager(layoutManager);
-
-
                     }
 
                     @Override
                     public void onError(Throwable t) {
-
                     }
 
                     @Override
                     public void onComplete() {
-
                     }
                 });
     }

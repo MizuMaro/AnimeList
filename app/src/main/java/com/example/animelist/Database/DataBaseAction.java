@@ -5,16 +5,10 @@ import android.content.Context;
 
 import com.example.animelist.Model.AnimeDetail;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.room.Room;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableCompletableObserver;
-import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
-import io.reactivex.subscribers.ResourceSubscriber;
 
 public class DataBaseAction {
 
@@ -28,7 +22,7 @@ public class DataBaseAction {
     public AnimeDatabase getDb(){
         if (db == null) {
             db = Room.databaseBuilder(apContext,
-                    AnimeDatabase.class, "database-name").build();
+                    AnimeDatabase.class, "database-anime").build();
         }
         return db;
     }
@@ -52,6 +46,7 @@ public class DataBaseAction {
                     }
                 });
     }
+
     @SuppressLint("CheckResult")
     public void addToFav(AnimeDetail result){
         getDb();

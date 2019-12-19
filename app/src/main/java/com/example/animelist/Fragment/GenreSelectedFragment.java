@@ -25,20 +25,66 @@ import androidx.recyclerview.widget.RecyclerView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 public class GenreSelectedFragment extends Fragment {
+
     int genreId;
     RequestManager requestManager;
     private ProgressBar progressBar;
-
-    public GenreSelectedFragment(int genreId) {
-        this.genreId = genreId;
-    }
-
     AnimeListResult result;
     private RecyclerView recyclerView;
     private Button tryAgain;
     private View view;
     ApiInterface api;
+
+    public GenreSelectedFragment(int genreId) {
+        this.genreId = genreId;
+    }
+
+
+
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        view= inflater.inflate(R.layout.fragment_genre, container, false);
+        recyclerView =view.findViewById(R.id.recycler_genre);
+        requestManager=Glide.with(this);
+        recyclerView.setVisibility(View.INVISIBLE);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBarGenre);
+        progressBar.setVisibility(View.VISIBLE);
+
+        tryAgain = (Button) view.findViewById(R.id.retry);
+        tryAgain.setVisibility(View.GONE);
+        tryAgain.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+
+                tryAgain.setVisibility(View.GONE);
+                getListByGenre();
+            }
+
+        });
+
+        getListByGenre();
+        return view;
+    }
+
+    public void generateList() {
+        recyclerView.setVisibility(view.VISIBLE);
+        tryAgain.setVisibility(View.GONE);
+        progressBar.setVisibility(View.GONE);
+        ListAdapter adapter = new ListAdapter(result,requestManager) ;
+        recyclerView.setAdapter(adapter);
+        //LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
+        GridLayoutManager layoutManager = new GridLayoutManager(view.getContext(),3);
+
+        recyclerView.setLayoutManager(layoutManager);
+
+
+    }
 
     private void getListByGenre(){
         /*Create handle for the RetrofitInstance interface*/
@@ -66,55 +112,4 @@ public class GenreSelectedFragment extends Fragment {
     }
 
 
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
-        requestManager=Glide.with(this);
-
-
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view= inflater.inflate(R.layout.fragment_genre, container, false);
-        recyclerView =view.findViewById(R.id.recycler_genre);
-        recyclerView.setVisibility(View.INVISIBLE);
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBarGenre);
-        progressBar.setVisibility(View.VISIBLE);
-
-        tryAgain = (Button) view.findViewById(R.id.retry);
-        tryAgain.setVisibility(View.GONE);
-        tryAgain.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                progressBar.setVisibility(View.VISIBLE);
-
-                tryAgain.setVisibility(View.GONE);
-                getListByGenre();
-            }
-
-        });
-
-        getListByGenre();
-        return view;
-    }
-
-        public void generateList() {
-        recyclerView.setVisibility(view.VISIBLE);
-        tryAgain.setVisibility(View.GONE);
-        progressBar.setVisibility(View.GONE);
-        ListAdapter adapter = new ListAdapter(result,requestManager) ;
-        recyclerView.setAdapter(adapter);
-        //LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
-        GridLayoutManager layoutManager = new GridLayoutManager(view.getContext(),3);
-
-        recyclerView.setLayoutManager(layoutManager);
-
-
-    }
 }
